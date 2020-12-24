@@ -24,4 +24,7 @@ Once your developed a while and want to test the umm, your have two ways to test
     pip install --editable .
 
 2. directly run the python file via:
+
+.. code-block:: shell
+
     python src/cli.py
