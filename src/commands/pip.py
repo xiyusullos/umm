@@ -8,6 +8,8 @@ from click import echo
 from src import C
 from src.utils import Mirror, is_windows
 
+# https://pip.pypa.io/en/stable/user_guide/#config-file
+
 MIRRORS = {
     "pypi": "https://pypi.python.org/simple/",
     "tuna": "https://pypi.tuna.tsinghua.edu.cn/simple",

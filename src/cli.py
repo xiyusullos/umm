@@ -14,7 +14,7 @@ CONTEXT_SETTINGS = {
 # @click.argument('tool')
 # @click.option('tool')
 def cli():
-    ''''A toolkit to manager the fastest mirror of various tools, such as pip, npm, composer and etc.'''
+    '''A toolkit to manager the fastest mirror of various tools, such as pip, npm, composer and etc.'''
     # echo('umm')
     pass
 
