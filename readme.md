@@ -29,8 +29,10 @@ We are going to support to manage the mirror of following tools:
 - [x] composer
 - [x] homebrew
 - [x] linuxbrew
+- [ ] docker
 - [ ] ubuntu
 - [ ] centos
+- [ ] julia
 - [ ] etc.
 
 ## Installation
