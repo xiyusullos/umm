@@ -1,15 +1,25 @@
 ---
 pip:
-  pypi: https://pypi.python.org/simple/
+  o: https://pypi.python.org/simple/
   test: https://test.pypi.org/simple/
   tuna: https://pypi.tuna.tsinghua.edu.cn/simple
   douban: http://pypi.douban.com/simple/
   aliyun: https://mirrors.aliyun.com/pypi/simple/
   ustc: https://mirrors.ustc.edu.cn/pypi/web/simple
 npm:
-  npm: https://registry.npmjs.org/
+  o: https://registry.npmjs.org/
   cnpm: http://r.cnpmjs.org/
   taobao: https://registry.npm.taobao.org/
   nj: https://registry.nodejitsu.com/
   npmMirror: https://skimdb.npmjs.com/registry/
   edunpm: http://registry.enpmjs.org/
+composer:
+  o: https://packagist.org
+  ali: https://mirrors.aliyun.com/composer/
+  tencent: https://mirrors.cloud.tencent.com/composer/
+  huawei: https://mirrors.huaweicloud.com/repository/php/
+  phpcomposer: https://packagist.phpcomposer.com
+  cnpkg: https://php.cnpkg.org
+  jp: https://packagist.jp/
+  sjtu: https://packagist.mirrors.sjtug.sjtu.edu.cn/
+  # laravelchina: https://packagist.laravel-china.org/  # stopped

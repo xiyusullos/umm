@@ -73,8 +73,8 @@ def test_Mirror():
 
 
 def run_cmd(args):
-    p = subprocess.run(args=args, stdout=subprocess.PIPE)
-    return p.stdout.decode('utf-8')
+    p = subprocess.run(args=args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    return (0 == p.returncode, p.stdout.decode('utf-8'))
 
 
 def set_locale(local='en_US.UTF-8'):

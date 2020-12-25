@@ -8,7 +8,7 @@ DESCRIPTION = 'A toolkit to manager the fastest mirror of various tools, such as
 URL = 'https://github.com/xiyusullos/umm'
 EMAIL = 'i@aponder.top'
 AUTHOR = 'aponder'
-VERSION = '0.2.2'
+VERSION = '0.3.0'
 
 # What packages are required for this module to be executed?
 REQUIRES = [

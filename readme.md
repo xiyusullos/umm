@@ -26,7 +26,7 @@ A toolkit to manager the fastest mirror of various tools, such as pip, npm, comp
 We are going to support to manage the mirror of following tools:
 - [x] pip
 - [x] npm
-- [ ] composer
+- [x] composer
 - [ ] homebrew
 - [ ] ubuntu
 - [ ] centos
@@ -102,7 +102,7 @@ umm pip ls
 
 Output
 ```
-pypi            https://pypi.python.org/simple/
+o               https://pypi.python.org/simple/
 tuna            https://pypi.tuna.tsinghua.edu.cn/simple
 douban          http://pypi.douban.com/simple/
 aliyun          https://mirrors.aliyun.com/pypi/simple/
@@ -166,7 +166,7 @@ Output
 ```
   [npm] name      url
 ------------------------------------------------------------
-* npm             https://registry.npmjs.org/
+* o               https://registry.npmjs.org/
   cnpm            http://r.cnpmjs.org/
   taobao          https://registry.npm.taobao.org/
   nj              https://registry.nodejitsu.com/

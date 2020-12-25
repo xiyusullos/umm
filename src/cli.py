@@ -2,7 +2,7 @@ import click
 from click import echo
 
 from src import C
-from src.commands import pip, npm
+from src.commands import pip, npm, composer
 
 CONTEXT_SETTINGS = {
     'ignore_unknown_options': True
@@ -19,6 +19,7 @@ def cli():
 
 cli.add_command(pip.cli)
 cli.add_command(npm.cli)
+cli.add_command(composer.cli)
 
 
 @cli.command('v', short_help='Show %s version.' % C.NAME)
