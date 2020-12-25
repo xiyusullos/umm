@@ -2,7 +2,24 @@
 
 A toolkit to manager the fastest mirror of various tools, such as pip, npm, composer and etc.
 
-[TOC]
+## Table of Contents
+
+   * [umm: yoUr Mirror Manager](#umm-your-mirror-manager)
+      * [Features](#features)
+      * [Installation](#installation)
+      * [Usage](#usage)
+         * [Show umm help](#show-umm-help)
+         * [Manage pip](#manage-pip)
+            * [Show umm pip help](#show-umm-pip-help)
+            * [List all available mirrors of pip](#list-all-available-mirrors-of-pip)
+            * [Use the given mirror for pip](#use-the-given-mirror-for-pip)
+            * [Show current mirror of pip](#show-current-mirror-of-pip)
+         * [Manage npm](#manage-npm)
+            * [Show umm npm help](#show-umm-npm-help)
+            * [List all available mirrors of npm](#list-all-available-mirrors-of-npm)
+            * [Use the given mirror for npm](#use-the-given-mirror-for-npm)
+            * [Show current mirror of npm](#show-current-mirror-of-npm)
+      * [How to test in local](#how-to-test-in-local)
 
 ## Features
 
