@@ -1,6 +1,7 @@
 ---
 pip:
   pypi: https://pypi.python.org/simple/
+  test: https://test.pypi.org/simple/
   tuna: https://pypi.tuna.tsinghua.edu.cn/simple
   douban: http://pypi.douban.com/simple/
   aliyun: https://mirrors.aliyun.com/pypi/simple/
