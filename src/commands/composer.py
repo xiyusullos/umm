@@ -14,11 +14,10 @@ class Composer(MirrorCommand):
     NAME = 'composer'
 
     def current_mirror_name(self):
-        cmd_args = 'composer config -l'.split(' ')
-        is_ok, out = run_cmd(cmd_args)
+        cmd = 'composer config -l'
+        is_ok, out = run_cmd(cmd)
         if not is_ok:
-            cmd_args.append('-g')
-            is_ok, out = run_cmd(cmd_args)
+            is_ok, out = run_cmd(cmd + ' -g')
 
         pattern = r'\[repositories\.packagist\.org\.url\] (.*)\n'
         url = re.search(pattern, out).groups()[0]
@@ -31,18 +30,12 @@ class Composer(MirrorCommand):
             return echo(C.INVALID_MIRROR_NAME)
 
         mirror_url = self.mirror[mirror_name]
-        cmd_args = []
         if not is_local:
-            cmd_args = ['composer', 'config', '-g', 'repo.packagist', 'composer', mirror_url]
+            cmd = 'composer config -g repo.packagist composer' + mirror_url
         else:
-            cmd_args = ['composer', 'config', 'repo.packagist', 'composer', mirror_url]
+            cmd = 'composer config repo.packagist composer' + mirror_url
 
-        out = run_cmd(cmd_args)
-
-
-def test_npm():
-    cli = Composer()
-    print(cli.current_mirror_name())
+        is_ok, out = run_cmd(cmd)
 
 
 cli = Composer()

@@ -23,3 +23,9 @@ composer:
   jp: https://packagist.jp/
   sjtu: https://packagist.mirrors.sjtug.sjtu.edu.cn/
   # laravelchina: https://packagist.laravel-china.org/  # stopped
+brew: # must end with /
+  o: https://github.com/Homebrew/
+  tuna: https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/
+  ali: https://mirrors.aliyun.com/homebrew/
+  tencent: https://mirrors.cloud.tencent.com/homebrew/
+  ustc: https://mirrors.ustc.edu.cn/

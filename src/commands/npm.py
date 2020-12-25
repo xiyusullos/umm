@@ -14,7 +14,7 @@ class Npm(MirrorCommand):
     NAME = 'npm'
 
     def current_mirror_name(self):
-        is_ok, out = run_cmd('npm config get registry'.split(' '))
+        is_ok, out = run_cmd('npm config get registry')
         found_mirror = self.mirror.find_by_url(out)
         return found_mirror[0] if found_mirror else self.DEFAULT
 
@@ -23,8 +23,8 @@ class Npm(MirrorCommand):
             return echo(C.INVALID_MIRROR_NAME)
 
         mirror_url = self.mirror[mirror_name]
-        cmd_args = ['npm', 'config', 'set', 'registry', mirror_url]
-        is_ok, out = run_cmd(cmd_args)
+        cmd = 'npm config set registry ' + mirror_url
+        is_ok, out = run_cmd(cmd)
 
 
 def test_npm():

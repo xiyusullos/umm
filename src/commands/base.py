@@ -7,7 +7,7 @@ from src.utils import Mirror
 
 class MirrorCommand(click.Group):
     NAME = 'todo'
-    DEFAULT = 'o' # official
+    DEFAULT = 'o'  # official
 
     @staticmethod
     def format_mirror(name, url):
@@ -55,10 +55,12 @@ class MirrorCommand(click.Group):
             return self.cmd_ls()
 
         @click.command('use', short_help='Use the given mirror.')
-        @click.option('-l', '--local', 'is_local', help='whether use the mirror in local', default=False, is_flag=True, show_default=True)
+        @click.option('-l', '--local', 'is_local', help='whether use the mirror in local', default=False, is_flag=True,
+                      show_default=True)
         @click.argument('mirror_name', type=click.STRING)
         def use(mirror_name, is_local=True):
-            return self.cmd_use(mirror_name, is_local)
+            self.cmd_use(mirror_name, is_local)
+            echo('successfully set to: %s %s' % (mirror_name, self.mirror[mirror_name]))
 
         @click.command('now', short_help='Show current using mirror.')
         def now():

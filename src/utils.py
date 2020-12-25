@@ -1,9 +1,13 @@
+import os
+import pipes
 import platform
+import re
 import subprocess
 
 from click import echo
 
 from src import C
+from tests import tests
 
 SYSTEM = platform.system()
 MACHINE = platform.machine()
@@ -64,17 +68,11 @@ class Mirror():
         pass
 
 
-def test_Mirror():
-    mirror = Mirror(C.MIRRORS.get('npm'))
-    print(mirror['npm'])
-    mirror['npm'] = 'abc'
-    print(mirror['npm'], 'npm' in mirror, 'a' in mirror)
-    print(mirror)
-
-
-def run_cmd(args):
-    p = subprocess.run(args=args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    return (0 == p.returncode, p.stdout.decode('utf-8'))
+def run_cmd(cmd):
+    p = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    is_ok = 0 == p.returncode
+    output = (p.stdout if is_ok else p.stderr).decode('utf-8').strip('\n')
+    return (is_ok, output)
 
 
 def set_locale(local='en_US.UTF-8'):
@@ -82,7 +80,40 @@ def set_locale(local='en_US.UTF-8'):
     os.environ['LC_ALL'] = os.environ['LANG'] = local
 
 
+def make_export_env(key, value=None):
+    s = 'export %s=' % key
+    if value is not None:
+        s += pipes.quote(str(value))
+    return s
+
+
+def store_env_variable(key, value):
+    if is_windows():
+        run_cmd('setx /M %s "%s"' % (key, value))
+    else:
+        p = os.path.expanduser('~/.bashrc')
+        with open(p, 'r') as f:
+            s = f.read().rstrip('\n')
+        s += '\n'  # if the target is the last one, without a \n will fail to search
+        prefix = make_export_env(key)
+        new_env = make_export_env(key, value)
+        pattern = prefix + r'(.*)\n'
+        r = re.search(pattern, s)
+        if r:  # env alreay exists
+            old_env = prefix + r.groups()[0]
+            cmd = 'sed -i -e "s/%s/%s/" %s' % (old_env, new_env, p)
+            run_cmd(cmd)
+        else:
+            cmd = 'echo "%s" >> "%s"' % (new_env, p)
+            run_cmd(cmd)
+
+
+def test_store_env_variable():
+    store_env_variable('ABC', '123 45')
+
+
 if __name__ == '__main__':
     print(SYSTEM, MACHINE)
 
-    test_Mirror()
+    # tests.test_Mirror()
+    test_store_env_variable()

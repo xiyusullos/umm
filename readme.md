@@ -27,7 +27,8 @@ We are going to support to manage the mirror of following tools:
 - [x] pip
 - [x] npm
 - [x] composer
-- [ ] homebrew
+- [x] homebrew
+- [x] linuxbrew
 - [ ] ubuntu
 - [ ] centos
 - [ ] etc.
