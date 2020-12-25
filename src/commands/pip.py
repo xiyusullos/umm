@@ -10,13 +10,9 @@ from src.utils import Mirror, is_windows
 
 # https://pip.pypa.io/en/stable/user_guide/#config-file
 
-MIRRORS = {
-    "pypi": "https://pypi.python.org/simple/",
-    "tuna": "https://pypi.tuna.tsinghua.edu.cn/simple",
-    "douban": "http://pypi.douban.com/simple/",
-    "aliyun": "https://mirrors.aliyun.com/pypi/simple/",
-    "ustc": "https://mirrors.ustc.edu.cn/pypi/web/simple",
-}
+NAME = 'pip'
+
+MIRRORS = C.MIRRORS.get(NAME, {})
 
 MIRROR = Mirror(MIRRORS)
 
@@ -56,15 +52,15 @@ def ls():
 @cli.command('now')
 def now():
     '''Show current mirror.'''
-    default_mirror = ('pypi', MIRROR.get('pypi'))
+    default_mirror = ('pypi', MIRROR['pypi'])
     config = load_config()
     if config.has_section('global'):
         mirror_url = config.get('global', 'index-url')
-        mirror = MIRROR.find_mirror(mirror_url)
+        mirror = MIRROR.find_by_url(mirror_url)
         if mirror:
-            return echo(MIRROR.format_mirror(mirror))
+            return echo(MIRROR.format(mirror))
 
-    echo(MIRROR.format_mirror(default_mirror))
+    echo(MIRROR.format(default_mirror))
 
 
 @cli.command('use')
@@ -73,10 +69,10 @@ def use(mirror_name):
     '''Use the given mirror.'''
     is_local = False
 
-    mirror_url = MIRROR.get(mirror_name)
-    if mirror_url is None:
-        return echo('Invalid mirror name.')
+    if mirror_name not in MIRROR:
+        return echo(C.INVALID_MIRROR_NAME)
 
+    mirror_url = MIRROR[mirror_name]
     url_info = urlparse(mirror_url)
     host = url_info.netloc
 

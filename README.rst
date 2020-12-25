@@ -1,3 +1,19 @@
+.. |check| raw:: html
+
+    <input checked=""  type="checkbox">
+
+.. |check_| raw:: html
+
+    <input checked=""  disabled="" type="checkbox">
+
+.. |uncheck| raw:: html
+
+    <input type="checkbox">
+
+.. |uncheck_| raw:: html
+
+    <input disabled="" type="checkbox">
+
 umm: yoUr Mirror Manager
 =========================
 
@@ -5,7 +21,19 @@ A toolkit to manager the fastest mirror of various tools, such as pip, npm, comp
 
 Features
 --------
-1. pip
+
+|check_| pip
+
+|check_| npm
+
+|uncheck_| composer
+
+|uncheck_| homebrew
+
+|uncheck_| ubuntu
+
+|uncheck_| centos
+
 
 Installation
 ------------

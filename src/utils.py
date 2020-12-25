@@ -1,6 +1,9 @@
 import platform
+import subprocess
 
 from click import echo
+
+from src import C
 
 SYSTEM = platform.system()
 MACHINE = platform.machine()
@@ -20,40 +23,66 @@ def is_64bit(): return 'x86_64' == MACHINE
 
 class Mirror():
     def __init__(self, mirror=None):
-        self.mirrors = mirror if mirror is not None else {}
+        self.data = mirror or {}
 
-    def format_mirror(self, mirror):
+    def format(self, mirror):
         if len(mirror) == 2:
             return '%-15s %s' % mirror
 
         return ''
 
-    def exist(self, mirror_name):
-        return mirror_name in self.mirrors
-
     def echo_mirrors(self):
         '''List all available mirrors'''
-        for k in self.mirrors:
-            echo(self.format_mirror((k, self.mirrors[k])))
+        for k in self.data:
+            echo(self.format((k, self.data[k])))
 
-    def find_mirror(self, mirror_url):
-        '''Find a mirror whose url equals to mirror_url.'''
+    def find_by_url(self, mirror_url):
+        '''Find a mirror whose url equals to mirror_url.
 
-        for k in self.mirrors:
-            if self.mirrors[k] == mirror_url:
+        :return (mirror_name, mirror_url)
+        '''
+        mirror_url = mirror_url.strip()
+        for k in self.data:
+            if self.data[k] == mirror_url:
                 return (k, mirror_url)
         return None
 
-    def get(self, mirror_name):
-        return self.mirrors.get(mirror_name, None)
+    def __iter__(self):
+        return iter(self.data)
 
-    def set(self, mirror_name, mirror_url):
-        self.mirrors.setdefault(mirror_name, mirror_url)
+    def __contains__(self, mirror_name):
+        return mirror_name in self.data
+
+    def __getitem__(self, mirror_name):
+        return self.data.get(mirror_name, '')
+
+    def __setitem__(self, mirror_name, mirror_url):
+        self.data[mirror_name] = mirror_url
 
     def save(self, file_path):
         # todo: maybe not necessary
         pass
 
 
+def test_Mirror():
+    mirror = Mirror(C.MIRRORS.get('npm'))
+    print(mirror['npm'])
+    mirror['npm'] = 'abc'
+    print(mirror['npm'], 'npm' in mirror, 'a' in mirror)
+    print(mirror)
+
+
+def run_cmd(args):
+    p = subprocess.run(args=args, stdout=subprocess.PIPE)
+    return p.stdout.decode('utf-8')
+
+
+def set_locale(local='en_US.UTF-8'):
+    import os
+    os.environ['LC_ALL'] = os.environ['LANG'] = local
+
+
 if __name__ == '__main__':
     print(SYSTEM, MACHINE)
+
+    test_Mirror()

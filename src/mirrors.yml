@@ -1,0 +1,14 @@
+---
+pip:
+  pypi: https://pypi.python.org/simple/
+  tuna: https://pypi.tuna.tsinghua.edu.cn/simple
+  douban: http://pypi.douban.com/simple/
+  aliyun: https://mirrors.aliyun.com/pypi/simple/
+  ustc: https://mirrors.ustc.edu.cn/pypi/web/simple
+npm:
+  npm: https://registry.npmjs.org/
+  cnpm: http://r.cnpmjs.org/
+  taobao: https://registry.npm.taobao.org/
+  nj: https://registry.nodejitsu.com/
+  npmMirror: https://skimdb.npmjs.com/registry/
+  edunpm: http://registry.enpmjs.org/
