@@ -10,6 +10,7 @@ from src.utils import run_cmd, set_locale
 
 # npm config set registry https://registry.npm.taobao.org
 # npm config set registry https://registry.npm.taobao.org -g
+# npm config set registry https://registry.npmjs.org -g
 
 class Npm(MirrorCommand):
     NAME = 'npm'
@@ -28,7 +29,7 @@ class Npm(MirrorCommand):
         cmd_args = ['npm', 'config', 'set', 'registry', mirror_url]
         if not is_local:
             cmd_args.append('-g')
-        run_cmd(cmd_args)
+        out = run_cmd(cmd_args)
 
 
 def test_npm():

@@ -19,9 +19,9 @@ from src import C
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-# Import the README and use it as the long-description.
-# Note: this will only work if 'README.rst' is present in your MANIFEST.in file!
-with io.open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
+# Import the 'readme.md' and use it as the long-description.
+# Note: this will only work if 'readme.md' is present in your MANIFEST.in file!
+with io.open(os.path.join(here, 'readme.md'), encoding='utf-8') as f:
     long_description = '\n' + f.read()
 
 
@@ -68,6 +68,7 @@ setup(
     version=C.VERSION,
     description=C.DESCRIPTION,
     long_description=long_description,
+    long_description_content_type="text/markdown",
     author=C.AUTHOR,
     author_email=C.EMAIL,
     url=C.URL,
