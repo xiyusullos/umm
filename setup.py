@@ -12,18 +12,12 @@ from setuptools import setup, Command
 
 from src import C
 
-# The rest you shouldn't have to touch too much :)
-# ------------------------------------------------
-# Except, perhaps the License and Trove Classifiers!
-# If you do change the License, remember to change the Trove Classifier for that!
-
 here = os.path.abspath(os.path.dirname(__file__))
 
 # Import the 'readme.md' and use it as the long-description.
 # Note: this will only work if 'readme.md' is present in your MANIFEST.in file!
-with io.open(os.path.join(here, 'readme.md'), encoding='utf-8') as f:
-    long_description = '\n' + f.read()
-
+with open("readme.md", "r", encoding="utf-8") as f:
+    long_description = f.read()
 
 class UploadCommand(Command):
     """Support setup.py upload."""

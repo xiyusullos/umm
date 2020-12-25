@@ -1,0 +1,2 @@
+include CHANGES.md LICENSE readme.md  setup.py
+recursive-include src *.py *.yml
