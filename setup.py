@@ -3,14 +3,13 @@
 
 # Note: To use the 'upload' functionality of this file, you must: pip install twine
 
-import io
 import os
 import sys
 from shutil import rmtree
 
-from setuptools import setup, Command
+from setuptools import setup, Command, find_packages
 
-from src import C
+from src.umm import C
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -18,6 +17,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 # Note: this will only work if 'readme.md' is present in your MANIFEST.in file!
 with open("readme.md", "r", encoding="utf-8") as f:
     long_description = f.read()
+
 
 class UploadCommand(Command):
     """Support setup.py upload."""
@@ -70,9 +70,15 @@ setup(
     # If your package is a single module, use this instead of 'packages':
     py_modules=['umm'],
 
+    # When your source code is in a subdirectory under the project root, e.g.
+    # `src/`, it is necessary to specify the `package_dir` argument.
+    package_dir={'': 'src'},
+
+    packages=find_packages(include=['src',]),
+
     entry_points={
         'console_scripts': [
-            'umm=src.cli:cli'
+            'umm=umm.main:cli'
         ],
     },
     install_requires=C.REQUIRES,

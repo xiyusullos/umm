@@ -1,12 +1,9 @@
 import os
 import re
 import time
-from importlib import reload
 
-from src import C
-from src.utils import Mirror, store_env_variable, is_windows, make_export_env
-
-import pytest
+import C
+from utils import Mirror, store_env_variable, is_windows, make_export_env
 
 
 def test_Mirror():

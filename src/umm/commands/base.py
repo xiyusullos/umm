@@ -1,8 +1,8 @@
 import click
 from click import echo
 
-from src import C
-from src.utils import Mirror
+from .. import C
+from ..utils import Mirror
 
 
 class MirrorCommand(click.Group):

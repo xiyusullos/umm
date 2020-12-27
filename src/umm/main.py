@@ -1,8 +1,8 @@
 import click
 from click import echo
 
-from src import C
-from src.commands import pip, npm, composer, brew
+from . import C
+from .commands import pip, npm, composer, brew
 
 CONTEXT_SETTINGS = {
     'ignore_unknown_options': True
@@ -33,12 +33,7 @@ def version():
 #     '''Update umm'''
 #     pass
 
-def test_mirrors_yaml():
-    for k in C.MIRRORS:
-        print(k)
-
 
 if __name__ == '__main__':
     pass
     cli()
-    # test_mirrors_yaml()

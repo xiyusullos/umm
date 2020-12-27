@@ -2,9 +2,9 @@ import re
 
 from click import echo
 
-from src import C
-from src.commands.base import MirrorCommand
-from src.utils import run_cmd, set_locale
+from .base import MirrorCommand
+from .. import C
+from ..utils import run_cmd, set_locale
 
 
 # composer config -g repo.packagist composer https://packagist.phpcomposer.com

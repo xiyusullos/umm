@@ -1,8 +1,8 @@
 from click import echo
 
-from src import C
-from src.commands.base import MirrorCommand
-from src.utils import run_cmd, set_locale
+from .base import MirrorCommand
+from .. import C
+from ..utils import run_cmd, set_locale
 
 
 # https://docs.npmjs.com/cli/v6/commands/npm-config

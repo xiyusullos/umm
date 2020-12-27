@@ -6,9 +6,6 @@ import subprocess
 
 from click import echo
 
-from src import C
-from tests import tests
-
 SYSTEM = platform.system()
 MACHINE = platform.machine()
 
@@ -108,12 +105,5 @@ def store_env_variable(key, value):
             run_cmd(cmd)
 
 
-def test_store_env_variable():
-    store_env_variable('ABC', '123 45')
-
-
 if __name__ == '__main__':
     print(SYSTEM, MACHINE)
-
-    # tests.test_Mirror()
-    test_store_env_variable()

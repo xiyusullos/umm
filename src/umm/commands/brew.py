@@ -1,10 +1,8 @@
-import re
-
 from click import echo
 
-from src import C
-from src.commands.base import MirrorCommand
-from src.utils import run_cmd, set_locale, make_export_env, store_env_variable, is_mac
+from .base import MirrorCommand
+from .. import C
+from ..utils import run_cmd, set_locale, make_export_env, store_env_variable, is_mac
 
 # https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
 # https://frankindev.com/2020/05/15/replace-homebrew-source/

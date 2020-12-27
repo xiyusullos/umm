@@ -5,8 +5,8 @@ from urllib.parse import urlparse
 import click
 from click import echo
 
-from src import C
-from src.utils import Mirror, is_windows
+from .. import C
+from ..utils import Mirror, is_windows
 
 # https://pip.pypa.io/en/stable/user_guide/#config-file
 

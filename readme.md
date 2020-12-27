@@ -37,20 +37,24 @@ We are going to support to manage the mirror of following tools:
 
 ## Installation
 
-```shell
+```bash
 pip install umm
 ```
+## Upgrade
 
+```bash
+pip install -U umm
+```
 
 ## Usage
 
 ### Show `umm` help
 
-```shell
+```bash
 umm
 ```
 or
-```shell
+```bash
 umm --ehlp
 ```
 
@@ -74,11 +78,11 @@ Commands:
 
 #### Show `umm pip` help
 
-```shell
+```bash
 umm pip
 ```
 or
-```shell
+```bash
 umm pip --ehlp
 ```
 
@@ -99,7 +103,7 @@ Commands:
 
 #### List all available mirrors of `pip`
 
-```shell
+```bash
 umm pip ls
 ```
 
@@ -115,13 +119,13 @@ ustc            https://mirrors.ustc.edu.cn/pypi/web/simple
 
 For example, use the **tuna** mirror.
 
-```shell
+```bash
 umm pip use tuna
 ```
 
 #### Show current mirror of `pip`
 
-```shell
+```bash
 umm pip now
 ```
 
@@ -136,11 +140,11 @@ tuna            https://pypi.tuna.tsinghua.edu.cn/simple
 
 #### Show `umm npm` help
 
-```shell
+```bash
 umm npm
 ```
 or
-```shell
+```bash
 umm npm --ehlp
 ```
 
@@ -161,7 +165,7 @@ Commands:
 
 #### List all available mirrors of `npm`
 
-```shell
+```bash
 umm npm ls
 ```
 
@@ -180,13 +184,13 @@ Output
 
 For example, use the **tabao** mirror.
 
-```shell
+```bash
 umm npm use taobao
 ```
 
 #### Show current mirror of `npm`
 
-```shell
+```bash
 umm npm now
 ```
 
@@ -203,12 +207,12 @@ Once your developed a while and want to test the umm, your have two ways to test
 
 1. install this package in your local via:
 
-```shell
+```bash
 pip install --editable .
 ```
 2. or, directly run the python file via:
 
-```shell
+```bash
 python src/cli.py
 ```
 

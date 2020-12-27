@@ -3,12 +3,12 @@ import os
 import yaml
 
 # Package meta-data.
+VERSION = '0.4.1'
 NAME = 'umm'
 DESCRIPTION = 'A toolkit to manager the fastest mirror of various tools, such as pip, npm, composer and etc.'
 URL = 'https://github.com/xiyusullos/umm'
 EMAIL = 'i@aponder.top'
 AUTHOR = 'aponder'
-VERSION = '0.4.0'
 
 # What packages are required for this module to be executed?
 REQUIRES = [
@@ -18,12 +18,12 @@ REQUIRES = [
 # Package meta-data. #end#
 
 
-SRC_PATH = os.path.dirname(__file__)
+HERE = os.path.dirname(__file__)
 
 HOME = os.getenv('HOME')
-VIRTUAL_ENV = os.getenv('VIRTUAL_ENV')
+VIRTUAL_ENV = os.getenv('VIRTUAL_ENV', HOME)
 
-MIRRORS = yaml.safe_load(open(os.sep.join([SRC_PATH, 'mirrors.yml'])))
+MIRRORS = yaml.safe_load(open(os.sep.join([HERE, 'mirrors.yml'])))
 
 
 # some constants
