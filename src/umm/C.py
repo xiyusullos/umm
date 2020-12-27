@@ -3,7 +3,7 @@ import os
 import yaml
 
 # Package meta-data.
-VERSION = '0.4.1'
+VERSION = '0.4.2'
 NAME = 'umm'
 DESCRIPTION = 'A toolkit to manager the fastest mirror of various tools, such as pip, npm, composer and etc.'
 URL = 'https://github.com/xiyusullos/umm'

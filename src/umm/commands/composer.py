@@ -31,9 +31,9 @@ class Composer(MirrorCommand):
 
         mirror_url = self.mirror[mirror_name]
         if not is_local:
-            cmd = 'composer config -g repo.packagist composer' + mirror_url
+            cmd = 'composer config -g repo.packagist composer ' + mirror_url
         else:
-            cmd = 'composer config repo.packagist composer' + mirror_url
+            cmd = 'composer config repo.packagist composer ' + mirror_url
 
         is_ok, out = run_cmd(cmd)
 
