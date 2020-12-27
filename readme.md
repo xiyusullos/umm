@@ -195,7 +195,9 @@ Output
 taobao          https://registry.npm.taobao.org/
 ```
 
-## How to test in local
+## How to test
+
+### install locally
 
 Once your developed a while and want to test the umm, your have two ways to test:
 
@@ -208,4 +210,14 @@ pip install --editable .
 
 ```shell
 python src/cli.py
+```
+
+### run the test
+
+Make sure you have installed `pytest`
+
+```bash
+cd umm/
+export PYTHONPATH=src
+pytest
 ```
