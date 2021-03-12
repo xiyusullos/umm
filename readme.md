@@ -29,6 +29,7 @@ We are going to support to manage the mirror of following tools:
 - [x] composer
 - [x] homebrew
 - [x] linuxbrew
+- [x] golang
 - [ ] docker
 - [ ] ubuntu
 - [ ] centos
@@ -213,7 +214,7 @@ pip install --editable .
 2. or, directly run the python file via:
 
 ```bash
-python src/cli.py
+python -m umm
 ```
 
 ### run the test

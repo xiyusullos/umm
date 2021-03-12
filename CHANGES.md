@@ -2,6 +2,10 @@ For a complete changelog, see:
 
 - https://github.com/xiyusullos/umm/commits/
 
+## 0.6.0 (2021-03-12)
+
+- support `golang`
+
 ## 0.3.0 (2020-12-26)
 
 - support `composer`

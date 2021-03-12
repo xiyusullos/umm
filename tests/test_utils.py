@@ -2,8 +2,8 @@ import os
 import re
 import time
 
-import C
-from utils import Mirror, store_env_variable, is_windows, make_export_env
+from umm import C
+from umm.utils import Mirror, store_env_variable, is_windows, make_export_env
 
 
 def test_Mirror():

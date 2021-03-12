@@ -29,3 +29,7 @@ brew: # must end with /
   ali: https://mirrors.aliyun.com/homebrew/
   tencent: https://mirrors.cloud.tencent.com/homebrew/
   ustc: https://mirrors.ustc.edu.cn/
+golang:
+  o: https://goproxy.io
+  qiniu: https://goproxy.cn
+  aliyun: https://mirrors.aliyun.com/goproxy/

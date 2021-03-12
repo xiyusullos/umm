@@ -78,7 +78,7 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'umm=umm.main:cli'
+            'umm=umm.__main__:cli'
         ],
     },
     install_requires=C.REQUIRES,

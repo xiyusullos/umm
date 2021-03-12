@@ -1,4 +1,4 @@
-import C
+from umm import C
 
 
 def test_mirrors_yaml():
