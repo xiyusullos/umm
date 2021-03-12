@@ -70,7 +70,7 @@ class Brew(MirrorCommand):
             is_ok, out = run_cmd(cmd)
 
 
-        # update envs
+        # update envs: HOMEBREW_BOTTLE_DOMAIN and HOMEBREW_CORE_GIT_REMOTE
         store_env_variable('HOMEBREW_BREW_GIT_REMOTE', git_urls[''])
         if mirror_name == 'o':
             if is_mac():

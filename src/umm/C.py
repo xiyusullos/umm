@@ -1,9 +1,10 @@
 import os
+import platform
 
 import yaml
 
 # Package meta-data.
-VERSION = '0.4.2'
+VERSION = '0.5.1'
 NAME = 'umm'
 DESCRIPTION = 'A toolkit to manager the fastest mirror of various tools, such as pip, npm, composer and etc.'
 URL = 'https://github.com/xiyusullos/umm'
@@ -20,7 +21,8 @@ REQUIRES = [
 
 HERE = os.path.dirname(__file__)
 
-HOME = os.getenv('HOME')
+_HOME_str = 'HOMEPATH' if platform.system() == 'Windows' else 'HOME'
+HOME = os.getenv(_HOME_str)
 VIRTUAL_ENV = os.getenv('VIRTUAL_ENV', HOME)
 
 MIRRORS = yaml.safe_load(open(os.sep.join([HERE, 'mirrors.yml'])))

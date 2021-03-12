@@ -74,7 +74,7 @@ setup(
     # `src/`, it is necessary to specify the `package_dir` argument.
     package_dir={'': 'src'},
 
-    packages=find_packages(include=['src',]),
+    packages=find_packages('src'),
 
     entry_points={
         'console_scripts': [

@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import click
 from click import echo
 
