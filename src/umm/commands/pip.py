@@ -1,5 +1,6 @@
 import configparser
 import os
+from pathlib import Path
 from urllib.parse import urlparse
 
 import click
@@ -83,7 +84,9 @@ def use(mirror_name):
     ensure_section(config, 'install')
     config.set('install', 'trusted-host', host)
 
-    with open(CONFIG_PATH_LOCAL if is_local else CONFIG_PATH_GLOBAL, 'w') as f:
+    config_path = Path(CONFIG_PATH_LOCAL if is_local else CONFIG_PATH_GLOBAL)
+    if not config_path.parent.exists(): config_path.parent.mkdir()
+    with config_path.open(mode='w') as f:
         config.write(f)
 
 
