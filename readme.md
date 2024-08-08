@@ -39,6 +39,7 @@ We are going to support to manage the mirror of following tools:
 ## Installation
 
 ```bash
+# pip install -i https://pypi.tuna.tsinghua.edu.cn/simple umm
 pip install umm
 ```
 ## Upgrade
